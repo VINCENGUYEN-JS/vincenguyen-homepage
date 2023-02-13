@@ -10,7 +10,7 @@
         "lint": "next lint"
     },
     "keywords": [],
-    "author": "Vince Nguyen Matsuyama",
+    "author": "Vince Nguyen",
     "license": "MIT",
     "dependencies": {
         "@chakra-ui/icons": "^2.0.15",
