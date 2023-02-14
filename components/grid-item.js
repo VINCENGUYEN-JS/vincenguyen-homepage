@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Box, Text, LinkBox, LinkOverlay } from '@chakra-ui/react'
 import { Global } from '@emotion/react'
 
+//HREF LINK
 export const GridItem = ({ children, href, title, thumbnail }) => (
   <Box w="100%" align="center">
     <LinkBox cursor="pointer">
@@ -21,6 +22,7 @@ export const GridItem = ({ children, href, title, thumbnail }) => (
   </Box>
 )
 
+//ID LINK
 export const WorkGridItem = ({ children, id, title, thumbnail }) => (
   <Box w="100%" textAlign="center">
     <LinkBox

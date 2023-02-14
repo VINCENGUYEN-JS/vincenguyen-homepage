@@ -4,14 +4,21 @@ import {
   Box,
   Heading,
   // Image,
+  Link,
   Button,
-  useColorModeValue
+  List,
+  ListItem,
+  useColorModeValue,
+  SimpleGrid
 } from '@chakra-ui/react'
 import Section from '../components/section'
 import Layout from '../components/layouts/article'
 import Paragraph from '../components/paragraph'
+import { GridItem } from '../components/grid-item'
 import { BioSection, BioYear } from '../components/bio'
 import { ChevronRightIcon } from '@chakra-ui/icons'
+import { IoLogoGithub, IoLogoYoutube, IoLogoLinkedin } from 'react-icons/io5'
+import thumbYoutube from '../public/images/pricefx-engineer-meetings.jpg'
 
 const Page = () => {
   return (
@@ -96,6 +103,61 @@ const Page = () => {
             I ♥
           </Heading>
           <Paragraph>Art, Music,Photography </Paragraph>
+        </Section>
+        <Section delay={0.4}>
+          <Heading as="h3" variant="section-title">
+            On Web
+          </Heading>
+          <List>
+            <ListItem>
+              <Link href="https://github.com/VINCENGUYEN-JS" target="_blank">
+                <Button
+                  variant="ghost"
+                  colorScheme="teal"
+                  leftIcon={<IoLogoGithub />}
+                >
+                  @vincenguyen
+                </Button>
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link
+                href="https://www.youtube.com/channel/UCzA_0Qzz-0E-plipIsF3Jew"
+                target="_blank"
+              >
+                <Button
+                  variant="ghost"
+                  colorScheme="teal"
+                  leftIcon={<IoLogoYoutube />}
+                >
+                  @vincenguyen
+                </Button>
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link
+                href="https://www.linkedin.com/in/vinh-nguyen-quang-44683a1b2/"
+                target="_blank"
+              >
+                <Button
+                  variant="ghost"
+                  colorScheme="teal"
+                  leftIcon={<IoLogoLinkedin />}
+                >
+                  @vincenguyen
+                </Button>
+              </Link>
+            </ListItem>
+          </List>
+          <SimpleGrid column={[1, 2, 2]} gap={6}>
+            <GridItem
+              href="https://www.youtube.com/watch?v=YtslW2rObDo&t=582s"
+              title="Business trip to Prague"
+              thumbnail={thumbYoutube}
+            >
+              My Youtube Channel
+            </GridItem>
+          </SimpleGrid>
         </Section>
       </Container>
     </Layout>
