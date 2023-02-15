@@ -6,7 +6,7 @@ import Layout from '../../components/layouts/article'
 const Work = () => {
   return (
     <Layout title="Pricefx">
-      <Container>
+      <Container mt={5}>
         <Title>
           Pricefx <Badge>2019</Badge>
         </Title>

@@ -1,6 +1,20 @@
 import NextLink from 'next/link'
 import { Heading, Box, Image, Link, Badge } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
+import styled from '@emotion/styled'
+
+const ImageWrapper = styled.div`
+  @media (min-width: 48em) {
+    > img {
+      transition-property: transform;
+      transition-duration: 0.5s;
+      transition-timing-function: ease-in-out;
+    }
+    &:hover > img {
+      transform: scale(2);
+    }
+  }
+`
 
 export const Title = ({ children }) => (
   <Box>
@@ -19,7 +33,9 @@ export const Title = ({ children }) => (
 )
 
 export const WorkImage = ({ src, alt }) => (
-  <Image borderRadius="lg" w="full" src={src} alt={alt} mb={4} />
+  <ImageWrapper>
+    <Image borderRadius="lg" w="full" src={src} alt={alt} mb={4} />
+  </ImageWrapper>
 )
 
 export const Meta = ({ children }) => (
