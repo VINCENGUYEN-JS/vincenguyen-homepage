@@ -11,6 +11,8 @@ import { WorkGridItem } from '../components/grid-item'
 import Layout from '../components/layouts/article'
 
 import thumbPricefx from '../public/images/works/pricefx-eyecatch.png'
+import thumbDevBlog from '../public/images/works/devblog.png'
+import thumbDentist from '../public/images/works/dentish-eyecatch.png'
 
 const Animation = ({ children }) => (
   <motion.div
@@ -44,6 +46,16 @@ const Works = () => {
           <Section delay={0.5}>
             <WorkGridItem id="pricefx" title="Pricefx" thumbnail={thumbPricefx}>
               Pricing software
+            </WorkGridItem>
+          </Section>
+          <Section delay={0.5}>
+            <WorkGridItem id="devblog" title="DevBlog" thumbnail={thumbDevBlog}>
+              A blog to share content with the others
+            </WorkGridItem>
+          </Section>
+          <Section delay={0.5}>
+            <WorkGridItem id="dentist" title="Dentist" thumbnail={thumbDentist}>
+              Your Number 1 Dental Clinic in Vietnam for Dental Implants
             </WorkGridItem>
           </Section>
         </SimpleGrid>
