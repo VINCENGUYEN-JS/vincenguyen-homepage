@@ -77,7 +77,7 @@ const Page = () => {
             communicate effectively with project managers, designers, and other
             stakeholders to ensure that projects are delivered on time
           </Paragraph>
-          <Box align="center" my={4}>
+          <Box textAlign="center" my={4}>
             <NextLink href="/works">
               <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
                 My portfolio

@@ -34,7 +34,7 @@ const Works = () => {
             bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
             p={3}
             mb={6}
-            align="center"
+            textAlign="center"
           >
             This is a collection of my professional works
           </Box>
