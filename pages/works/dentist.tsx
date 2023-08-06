@@ -1,7 +1,7 @@
-import { Container, Badge, Link, List, ListItem } from '@chakra-ui/react'
-import { Title, WorkImage, Meta } from '../../components/work'
-import P from '../../components/paragraph'
-import Layout from '../../components/layouts/article'
+import { Container, Badge, Link, List, ListItem } from "@chakra-ui/react";
+import { Title, WorkImage, Meta } from "../../components/work";
+import P from "../../components/paragraph";
+import Layout from "../../components/layouts/article";
 
 const Work = () => {
   return (
@@ -32,7 +32,7 @@ const Work = () => {
         <WorkImage src="/images/works/doingu.png" alt="doingu" />
       </Container>
     </Layout>
-  )
-}
+  );
+};
 
-export default Work
+export default Work;

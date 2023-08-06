@@ -1,7 +1,7 @@
-import NextLink from 'next/link'
-import { Heading, Box, Image, Link, Badge } from '@chakra-ui/react'
-import { ChevronRightIcon } from '@chakra-ui/icons'
-import styled from '@emotion/styled'
+import NextLink from "next/link";
+import { Heading, Box, Image, Link, Badge } from "@chakra-ui/react";
+import { ChevronRightIcon } from "@chakra-ui/icons";
+import styled from "@emotion/styled";
 
 const ImageWrapper = styled.div`
   @media (min-width: 48em) {
@@ -14,7 +14,7 @@ const ImageWrapper = styled.div`
       transform: scale(2);
     }
   }
-`
+`;
 
 export const Title = ({ children }) => (
   <Box>
@@ -30,16 +30,16 @@ export const Title = ({ children }) => (
       {children}
     </Heading>
   </Box>
-)
+);
 
 export const WorkImage = ({ src, alt }) => (
   <ImageWrapper>
     <Image borderRadius="lg" w="full" src={src} alt={alt} mb={4} />
   </ImageWrapper>
-)
+);
 
 export const Meta = ({ children }) => (
   <Badge colorScheme="green" mr={2}>
     {children}
   </Badge>
-)
+);

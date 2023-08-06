@@ -1,4 +1,4 @@
-import NextLink from 'next/link'
+import NextLink from "next/link";
 import {
   Container,
   Box,
@@ -9,31 +9,31 @@ import {
   List,
   ListItem,
   useColorModeValue,
-  SimpleGrid
-} from '@chakra-ui/react'
-import Section from '../components/section'
-import Layout from '../components/layouts/article'
-import Paragraph from '../components/paragraph'
-import { GridItem } from '../components/grid-item'
-import { BioSection, BioYear } from '../components/bio'
-import { ChevronRightIcon } from '@chakra-ui/icons'
-import { IoLogoGithub, IoLogoYoutube, IoLogoLinkedin } from 'react-icons/io5'
-import thumbYoutube from '../public/images/pricefx-engineer-meetings.jpg'
+  SimpleGrid,
+} from "@chakra-ui/react";
+import Section from "../components/section";
+import Layout from "../components/layouts/article";
+import Paragraph from "../components/paragraph";
+import { GridItem } from "../components/grid-item";
+import { BioSection, BioYear } from "../components/bio";
+import { ChevronRightIcon } from "@chakra-ui/icons";
+import { IoLogoGithub, IoLogoYoutube, IoLogoLinkedin } from "react-icons/io5";
+import thumbYoutube from "../public/images/pricefx-engineer-meetings.jpg";
 
 const Page = () => {
   return (
-    <Layout>
+    <Layout title="Porfolio">
       <Container mt={3}>
         <Box
           borderRadius="lg"
-          bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
+          bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.200")}
           p={3}
           mb={6}
-          align="center"
+          textAlign="center"
         >
           Hello , I &apos;m a React developer based in VietNam!
         </Box>
-        <Box display={{ md: 'flex' }}>
+        <Box display={{ md: "flex" }}>
           <Box flexGrow={1}>
             <Heading as="h2" variant="page-title">
               Vince Nguyen
@@ -113,7 +113,7 @@ const Page = () => {
               <Link href="https://github.com/VINCENGUYEN-JS" target="_blank">
                 <Button
                   variant="ghost"
-                  colorScheme="teal"
+                  color="accent.300"
                   leftIcon={<IoLogoGithub />}
                 >
                   @vincenguyen
@@ -127,7 +127,7 @@ const Page = () => {
               >
                 <Button
                   variant="ghost"
-                  colorScheme="teal"
+                  color="accent.300"
                   leftIcon={<IoLogoYoutube />}
                 >
                   @vincenguyen
@@ -141,7 +141,7 @@ const Page = () => {
               >
                 <Button
                   variant="ghost"
-                  colorScheme="teal"
+                  color="accent.300"
                   leftIcon={<IoLogoLinkedin />}
                 >
                   @vincenguyen
@@ -161,7 +161,7 @@ const Page = () => {
         </Section>
       </Container>
     </Layout>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

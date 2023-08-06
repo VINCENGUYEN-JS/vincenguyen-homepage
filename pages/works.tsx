@@ -3,18 +3,18 @@ import {
   Box,
   Heading,
   SimpleGrid,
-  useColorModeValue
-} from '@chakra-ui/react'
-import { motion } from 'framer-motion'
-import Section from '../components/section'
-import { WorkGridItem } from '../components/grid-item'
-import Layout from '../components/layouts/article'
+  useColorModeValue,
+} from "@chakra-ui/react";
+import { motion } from "framer-motion";
+import Section from "../components/section";
+import { WorkGridItem } from "../components/grid-item";
+import Layout from "../components/layouts/article";
 
-import thumbPricefx from '../public/images/works/pricefx-eyecatch.png'
-import thumbDevBlog from '../public/images/works/devblog.png'
-import thumbDentist from '../public/images/works/dentish-eyecatch.png'
+import thumbPricefx from "../public/images/works/pricefx-eyecatch.png";
+import thumbDevBlog from "../public/images/works/devblog.png";
+import thumbDentist from "../public/images/works/dentish-eyecatch.png";
 
-const Animation = ({ children }) => (
+const Animation = ({ children }: { children: React.ReactNode }) => (
   <motion.div
     initial={{ opacity: 0, x: -120 }}
     animate={{ opacity: 1, x: 0 }}
@@ -22,7 +22,7 @@ const Animation = ({ children }) => (
   >
     {children}
   </motion.div>
-)
+);
 
 const Works = () => {
   return (
@@ -31,7 +31,7 @@ const Works = () => {
         <Animation>
           <Box
             borderRadius="lg"
-            bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')}
+            bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.200")}
             p={3}
             mb={6}
             textAlign="center"
@@ -61,7 +61,7 @@ const Works = () => {
         </SimpleGrid>
       </Container>
     </Layout>
-  )
-}
+  );
+};
 
-export default Works
+export default Works;
