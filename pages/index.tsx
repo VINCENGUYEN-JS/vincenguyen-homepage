@@ -8,7 +8,6 @@ import {
   Button,
   List,
   ListItem,
-  useColorModeValue,
   SimpleGrid,
 } from "@chakra-ui/react";
 import Section from "../components/section";
@@ -26,7 +25,7 @@ const Page = () => {
       <Container mt={3}>
         <Box
           borderRadius="lg"
-          bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.200")}
+          bgColor="alpha.300"
           p={3}
           mb={6}
           textAlign="center"
@@ -35,9 +34,7 @@ const Page = () => {
         </Box>
         <Box display={{ md: "flex" }}>
           <Box flexGrow={1}>
-            <Heading as="h2" variant="page-title">
-              Vince Nguyen
-            </Heading>
+            <Heading as="h2">Vince Nguyen</Heading>
             <p>Software Engineer / Designer</p>
           </Box>
           {/* <Box
@@ -61,7 +58,7 @@ const Page = () => {
           </Box> */}
         </Box>
         <Section delay={0.1}>
-          <Heading as="h3" variant="section-title">
+          <Heading as="h3" variant="section">
             Work
           </Heading>
           <Paragraph>
@@ -79,14 +76,18 @@ const Page = () => {
           </Paragraph>
           <Box textAlign="center" my={4}>
             <NextLink href="/works">
-              <Button rightIcon={<ChevronRightIcon />} colorScheme="teal">
+              <Button
+                rightIcon={<ChevronRightIcon />}
+                bg="alpha.300"
+                color="accent.300"
+              >
                 My portfolio
               </Button>
             </NextLink>
           </Box>
         </Section>
         <Section delay={0.2}>
-          <Heading as="h3" variant="section-title">
+          <Heading as="h3" variant="section">
             Experience
           </Heading>
           <BioSection>
@@ -99,13 +100,13 @@ const Page = () => {
           </BioSection>
         </Section>
         <Section delay={0.3}>
-          <Heading as="h3" variant="section-title">
+          <Heading as="h3" variant="section">
             I ♥
           </Heading>
           <Paragraph>Art, Music, Photography </Paragraph>
         </Section>
         <Section delay={0.4}>
-          <Heading as="h3" variant="section-title">
+          <Heading as="h3" variant="section">
             On Web
           </Heading>
           <List>

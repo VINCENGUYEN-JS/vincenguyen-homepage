@@ -1,39 +1,8 @@
 import { extendTheme } from "@chakra-ui/react";
-import { mode } from "@chakra-ui/theme-tools";
 
+import { Link, Heading } from "./componentStyle";
+import styles from "./globalStyles";
 import colorPalettes from "./colorPalettes";
-
-type TODO = any;
-
-const styles = {
-  global: (props: TODO) => ({
-    body: {
-      bg: mode("#f0e7db", "#202023")(props),
-    },
-  }),
-};
-
-const components = {
-  Heading: {
-    variants: {
-      "section-title": {
-        textDecoration: "underline",
-        fontSize: 20,
-        textUnderlineOffset: 6,
-        textDecorationColor: "#525252",
-        textDecorationThickness: 4,
-        marginTop: 3,
-        marginBottom: 4,
-      },
-    },
-  },
-  Link: {
-    baseStyle: (props: TODO) => ({
-      color: mode("#3d7aed", "#ff63c3")(props),
-      textUnderlineOffset: 3,
-    }),
-  },
-};
 
 const fonts = {
   heading: "'M PLUS Rounded 1c'",
@@ -48,16 +17,17 @@ const config = {
   useSystemColorMode: true,
 };
 
-const semanticTokens = {
-  colors: colorPalettes,
-};
-
 const theme = extendTheme({
   config,
   styles,
-  components,
+  components: {
+    Heading,
+    Link,
+  },
   fonts,
   colors,
-  semanticTokens,
+  semanticTokens: {
+    colors: colorPalettes,
+  },
 });
 export default theme;
