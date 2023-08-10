@@ -38,13 +38,13 @@ const Heading = defineStyleConfig({
 });
 
 const Link = defineStyleConfig({
-  baseStyle: (props: StyleFunctionProps) => {
-    const { theme } = props;
-    const accentColor = theme?.semanticTokens?.colors[`accent.700`];
+  baseStyle: () => {
+    // const { theme } = props;
+    // const accentColor = theme?.semanticTokens?.colors[`accent.700`];
     return {
       _hover: {
         textDecoration: "none",
-        bg: mode(accentColor.default, accentColor._dark)(props),
+        // bg: mode(accentColor.default, accentColor._dark)(props),
       },
     };
   },

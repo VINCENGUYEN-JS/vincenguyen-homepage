@@ -26,7 +26,7 @@ const Animation = ({ children }: { children: React.ReactNode }) => (
 
 const Works = () => {
   return (
-    <Layout title="Works">
+    <Layout>
       <Container mt={3}>
         <Animation>
           <Box

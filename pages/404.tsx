@@ -18,7 +18,13 @@ const NotFound = () => {
         <Heading as="h1">Not Found</Heading>
         <Text>The page you&apos;re looking for was not found</Text>
         <NextLink href="/">
-          <Button bg="alpha.300" color="accent.300">
+          <Button
+            bg="accent.500"
+            color="white"
+            _hover={{
+              bg: "accent.400",
+            }}
+          >
             Return to home
           </Button>
         </NextLink>

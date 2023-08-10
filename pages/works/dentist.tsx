@@ -5,7 +5,7 @@ import Layout from "../../components/layouts/article";
 
 const Work = () => {
   return (
-    <Layout title="Dentist">
+    <Layout>
       <Container mt={5}>
         <Title>
           Dentist <Badge>2023</Badge>

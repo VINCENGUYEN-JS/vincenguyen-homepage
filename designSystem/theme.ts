@@ -1,6 +1,6 @@
 import { extendTheme } from "@chakra-ui/react";
 
-import { Link, Heading } from "./componentStyle";
+import { Heading, Link } from "./componentStyle";
 import styles from "./globalStyles";
 import colorPalettes from "./colorPalettes";
 

@@ -1,4 +1,3 @@
-import { forwardRef } from "react";
 import Logo from "./logo";
 import NextLink from "next/link";
 import {
@@ -10,6 +9,7 @@ import {
   Flex,
   Menu,
   MenuItem,
+  Avatar,
   MenuList,
   MenuButton,
   IconButton,
@@ -18,16 +18,34 @@ import {
 import { HamburgerIcon } from "@chakra-ui/icons";
 import ThemeToggleButton from "./theme-toggle-button";
 
-const LinkItem = ({ href, path, target, children, ...props }) => {
+type LinkItemProps = {
+  href: string;
+  path: string;
+  target?: string;
+  children: React.ReactNode;
+};
+
+type NavBarProps = {
+  path: string;
+};
+
+const LinkItem = ({
+  href,
+  path,
+  target,
+  children,
+  ...props
+}: LinkItemProps) => {
   const active = path === href;
-  const inactiveColor = useColorModeValue("gray.800", "whiteAlpha.900");
+
   return (
     <Link
       as={NextLink}
       href={href}
       scroll={false}
+      fontWeight="medium"
       p={2}
-      color={active ? "#202023" : inactiveColor}
+      bg={active ? "accent.600" : undefined}
       target={target}
       {...props}
     >
@@ -36,11 +54,7 @@ const LinkItem = ({ href, path, target, children, ...props }) => {
   );
 };
 
-const MenuLink = forwardRef((props, ref) => (
-  <Link ref={ref} as={NextLink} {...props} />
-));
-
-const Navbar = (props) => {
+const Navbar = (props: NavBarProps) => {
   const { path } = props;
 
   return (
@@ -57,12 +71,11 @@ const Navbar = (props) => {
         display="flex"
         p={2}
         maxW="container.md"
-        wrap="wrap"
-        align="center"
-        justify="space-between"
+        alignItems="center"
+        justifyContent="space-between"
       >
         <Flex align="center" mr={5}>
-          <Heading as="h1" size="lg" letterSpacing={"tighter"}>
+          <Heading as="h1" size="lg" letterSpacing="tighter">
             <Logo />
           </Heading>
         </Flex>
@@ -83,8 +96,22 @@ const Navbar = (props) => {
           </LinkItem>
         </Stack>
 
-        <Box flex={1} align="right">
+        <Box
+          flex={1}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          gap="10px"
+        >
           <ThemeToggleButton />
+
+          <Avatar
+            display={{ base: "none", md: "block" }}
+            name="Vince Nguyen"
+            size="md"
+            src="images/avartar.jpg"
+          />
+
           <Box ml={2} display={{ base: "inline-block", md: "none" }}>
             <Menu isLazy id="navbar-menu">
               <MenuButton
@@ -94,13 +121,13 @@ const Navbar = (props) => {
                 aria-label="Options"
               />
               <MenuList>
-                <MenuItem as={MenuLink} href="/">
+                <MenuItem as="a" href="/">
                   About
                 </MenuItem>
-                <MenuItem as={MenuLink} href="/works">
+                <MenuItem as="a" href="/works">
                   Works
                 </MenuItem>
-                <MenuItem as={MenuLink} href="/posts">
+                <MenuItem as="a" href="/posts">
                   Posts
                 </MenuItem>
               </MenuList>

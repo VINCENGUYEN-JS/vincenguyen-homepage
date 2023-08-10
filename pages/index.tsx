@@ -1,4 +1,3 @@
-import NextLink from "next/link";
 import {
   Container,
   Box,
@@ -10,19 +9,20 @@ import {
   ListItem,
   SimpleGrid,
 } from "@chakra-ui/react";
+import { IoLogoGithub, IoLogoYoutube, IoLogoLinkedin } from "react-icons/io5";
+
 import Section from "../components/section";
 import Layout from "../components/layouts/article";
 import Paragraph from "../components/paragraph";
+import DownloadButton from "../components/DownloadButton";
 import { GridItem } from "../components/grid-item";
 import { BioSection, BioYear } from "../components/bio";
-import { ChevronRightIcon } from "@chakra-ui/icons";
-import { IoLogoGithub, IoLogoYoutube, IoLogoLinkedin } from "react-icons/io5";
 import thumbYoutube from "../public/images/pricefx-engineer-meetings.jpg";
 
 const Page = () => {
   return (
-    <Layout title="Porfolio">
-      <Container mt={3}>
+    <Layout>
+      <Container mt={5}>
         <Box
           borderRadius="lg"
           bgColor="alpha.300"
@@ -74,19 +74,11 @@ const Page = () => {
             communicate effectively with project managers, designers, and other
             stakeholders to ensure that projects are delivered on time
           </Paragraph>
-          <Box textAlign="center" my={4}>
-            <NextLink href="/works">
-              <Button
-                rightIcon={<ChevronRightIcon />}
-                bg="alpha.300"
-                color="accent.300"
-              >
-                My portfolio
-              </Button>
-            </NextLink>
+          <Box textAlign="center" mt="6">
+            <DownloadButton />
           </Box>
         </Section>
-        <Section delay={0.2}>
+        <Section delay={0.2} mb={6}>
           <Heading as="h3" variant="section">
             Experience
           </Heading>
@@ -99,13 +91,13 @@ const Page = () => {
             Software Engineer (Pricefx, Inc. · Full-time)
           </BioSection>
         </Section>
-        <Section delay={0.3}>
+        <Section delay={0.3} mb={6}>
           <Heading as="h3" variant="section">
             I ♥
           </Heading>
           <Paragraph>Art, Music, Photography </Paragraph>
         </Section>
-        <Section delay={0.4}>
+        <Section delay={0.4} mb={6}>
           <Heading as="h3" variant="section">
             On Web
           </Heading>
@@ -150,16 +142,16 @@ const Page = () => {
               </Link>
             </ListItem>
           </List>
-          <SimpleGrid column={[1, 2, 2]} gap={6}>
-            <GridItem
-              href="https://www.youtube.com/watch?v=YtslW2rObDo&t=582s"
-              title="Business trip to Prague"
-              thumbnail={thumbYoutube}
-            >
-              My Youtube Channel
-            </GridItem>
-          </SimpleGrid>
         </Section>
+        <SimpleGrid column={[1, 2, 2]} gap={6}>
+          <GridItem
+            href="https://www.youtube.com/watch?v=YtslW2rObDo&t=582s"
+            title="Business trip to Prague"
+            thumbnail={thumbYoutube}
+          >
+            My Youtube Channel
+          </GridItem>
+        </SimpleGrid>
       </Container>
     </Layout>
   );
