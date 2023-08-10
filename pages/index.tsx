@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Container,
   Box,
@@ -11,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { IoLogoGithub, IoLogoYoutube, IoLogoLinkedin } from "react-icons/io5";
 
+import useTypewriter from "../hooks/useTypewriter";
 import Section from "../components/section";
 import Layout from "../components/layouts/article";
 import Paragraph from "../components/paragraph";
@@ -20,6 +22,10 @@ import { BioSection, BioYear } from "../components/bio";
 import thumbYoutube from "../public/images/pricefx-engineer-meetings.jpg";
 
 const Page = () => {
+  const displayText = useTypewriter(
+    "Hello , I 'm a React developer based in VietNam!",
+    60
+  );
   return (
     <Layout>
       <Container mt={5}>
@@ -30,7 +36,7 @@ const Page = () => {
           mb={6}
           textAlign="center"
         >
-          Hello , I &apos;m a React developer based in VietNam!
+          {displayText}
         </Box>
         <Box display={{ md: "flex" }}>
           <Box flexGrow={1}>
