@@ -10,6 +10,7 @@ import Section from "../components/section";
 import { WorkGridItem } from "../components/grid-item";
 import Layout from "../components/layouts/article";
 
+import CustomHead from "../components/seo";
 import thumbPricefx from "../public/images/works/pricefx-eyecatch.png";
 import thumbDevBlog from "../public/images/works/devblog.png";
 import thumbDentist from "../public/images/works/dentish-eyecatch.png";
@@ -27,6 +28,12 @@ const Animation = ({ children }: { children: React.ReactNode }) => (
 const Works = () => {
   return (
     <Layout>
+      <CustomHead
+        title="Vince Nguyen - Frontend Developer Portfolio"
+        description="Explore Vince Nguyen's impressive portfolio of projects developed using React.js. Discover a collection of modern, interactive, and responsive web applications."
+        imageUrl="images/avartar.jpg"
+        url="vincenguyen.dev/works"
+      />
       <Container mt={3}>
         <Animation>
           <Box

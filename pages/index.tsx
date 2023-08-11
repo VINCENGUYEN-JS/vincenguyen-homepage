@@ -19,7 +19,10 @@ import Paragraph from "../components/paragraph";
 import DownloadButton from "../components/DownloadButton";
 import { GridItem } from "../components/grid-item";
 import { BioSection, BioYear } from "../components/bio";
+import CustomHead from "../components/seo";
 import thumbYoutube from "../public/images/pricefx-engineer-meetings.jpg";
+
+// index.tsx will only be rendered with access /
 
 const Page = () => {
   const displayText = useTypewriter(
@@ -28,6 +31,12 @@ const Page = () => {
   );
   return (
     <Layout>
+      <CustomHead
+        title="Vince Nguyen - Portfolio"
+        description="Welcome to Vince Nguyen's portfolio showcasing amazing projects and skills."
+        imageUrl="images/avartar.jpg"
+        url="vincenguyen.dev"
+      />
       <Container mt={5}>
         <Box
           borderRadius="lg"
@@ -43,25 +52,6 @@ const Page = () => {
             <Heading as="h2">Vince Nguyen</Heading>
             <p>Software Engineer / Designer</p>
           </Box>
-          {/* <Box
-            flexShrink={0}
-            mt={{ base: 4, md: 0 }}
-            ml={{ md: 6 }}
-            textAlign="center"
-          >
-            <Image
-              borderColor="whiteAlpha.800"
-              borderWidth={2}
-              borderStyle="solid"
-              w="100px"
-              h="100px"
-              display="inline-block"
-              borderRadius="full"
-              overflow="hidden"
-              src="/images/vincenguyen.jpg"
-              alt="Profile Image"
-            />
-          </Box> */}
         </Box>
         <Section delay={0.1}>
           <Heading as="h3" variant="section">

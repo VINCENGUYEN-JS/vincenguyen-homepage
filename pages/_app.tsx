@@ -6,6 +6,8 @@ import { AnimatePresence } from "framer-motion";
 
 import type { AppProps } from "next/app";
 
+// _app.tsx will contain the whole app
+
 const Website = ({ Component, pageProps, router }: AppProps) => {
   return (
     <ChakraProvider theme={theme}>
