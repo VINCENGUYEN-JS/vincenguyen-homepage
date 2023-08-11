@@ -4,7 +4,6 @@ import { DownloadIcon } from "@chakra-ui/icons";
 
 const DownloadButton: React.FC = () => {
   const [isLoading, setLoading] = React.useState(false);
-  console.log({ isLoading });
 
   const handleDownload = async () => {
     setLoading(true);

@@ -1,4 +1,4 @@
-import Logo from "./logo";
+import Logo from "../logo";
 import NextLink from "next/link";
 import {
   Container,
@@ -7,16 +7,10 @@ import {
   Stack,
   Heading,
   Flex,
-  Menu,
-  MenuItem,
-  Avatar,
-  MenuList,
-  MenuButton,
-  IconButton,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
-import ThemeToggleButton from "./theme-toggle-button";
+
+import RightNavBar from "./RightNavBar";
 
 type LinkItemProps = {
   href: string;
@@ -103,36 +97,7 @@ const Navbar = (props: NavBarProps) => {
           alignItems="center"
           gap="10px"
         >
-          <ThemeToggleButton />
-
-          <Avatar
-            display={{ base: "none", md: "block" }}
-            name="Vince Nguyen"
-            size="md"
-            src="images/avartar.jpg"
-          />
-
-          <Box ml={2} display={{ base: "inline-block", md: "none" }}>
-            <Menu isLazy id="navbar-menu">
-              <MenuButton
-                as={IconButton}
-                icon={<HamburgerIcon />}
-                variant="outline"
-                aria-label="Options"
-              />
-              <MenuList>
-                <MenuItem as="a" href="/">
-                  About
-                </MenuItem>
-                <MenuItem as="a" href="/works">
-                  Works
-                </MenuItem>
-                <MenuItem as="a" href="/posts">
-                  Posts
-                </MenuItem>
-              </MenuList>
-            </Menu>
-          </Box>
+          <RightNavBar />
         </Box>
       </Container>
     </Box>
