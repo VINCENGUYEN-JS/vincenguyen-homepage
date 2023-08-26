@@ -7,7 +7,7 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Section from "../components/section";
-import { WorkGridItem } from "../components/grid-item";
+import { WorkGridItem } from "../components/GridItem";
 import Layout from "../components/layouts/article";
 
 import CustomHead from "../components/seo";
@@ -29,7 +29,7 @@ const Works = () => {
   return (
     <Layout>
       <CustomHead
-        title="Vince Nguyen - Frontend Developer Portfolio"
+        title="Vince Nguyen: Frontend Developer Portfolio"
         description="Explore Vince Nguyen's impressive portfolio of projects developed using React.js. Discover a collection of modern, interactive, and responsive web applications."
         imageUrl="images/avartar.jpg"
         url="vincenguyen.dev/works"

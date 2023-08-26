@@ -12,10 +12,10 @@ const DownloadButton: React.FC = () => {
       // Simulate a delay
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
-      const pdfPath = "/resume.pdf";
+      const pdfPath = "/VinceNguyen.pdf";
       const link = document.createElement("a");
       link.href = pdfPath;
-      link.setAttribute("download", "downloaded.pdf");
+      link.setAttribute("download", "VinceNguyen.pdf");
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

@@ -17,10 +17,5 @@
     "incremental": true
   },
   "exclude": ["node_modules", ".next"],
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "components/theme-toggle-button.js"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

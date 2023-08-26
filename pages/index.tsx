@@ -17,7 +17,7 @@ import Section from "../components/section";
 import Layout from "../components/layouts/article";
 import Paragraph from "../components/paragraph";
 import DownloadButton from "../components/DownloadButton";
-import { GridItem } from "../components/grid-item";
+import { GridItem } from "../components/GridItem";
 import { BioSection, BioYear } from "../components/bio";
 import CustomHead from "../components/seo";
 import thumbYoutube from "../public/images/pricefx-engineer-meetings.jpg";
@@ -32,7 +32,7 @@ const Page = () => {
   return (
     <Layout>
       <CustomHead
-        title="Vince Nguyen - Portfolio"
+        title="Vince Nguyen: Portfolio"
         description="Welcome to Vince Nguyen's portfolio showcasing amazing projects and skills."
         imageUrl="images/avartar.jpg"
         url="vincenguyen.dev"

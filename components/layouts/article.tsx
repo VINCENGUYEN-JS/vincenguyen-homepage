@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
 
-import { GridItemStyle } from "../grid-item";
-
 type LayoutProps = {
   children: React.ReactNode;
 };
@@ -21,10 +19,7 @@ const Layout = ({ children }: LayoutProps) => (
     transition={{ duration: 0.4, type: "easeInOut" }}
     style={{ position: "relative" }}
   >
-    <>
-      {children}
-      <GridItemStyle />
-    </>
+    <>{children}</>
   </motion.article>
 );
 

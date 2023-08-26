@@ -50,4 +50,12 @@ const Link = defineStyleConfig({
   },
 });
 
-export { Heading, Link };
+const Image = defineStyleConfig({
+  variants: {
+    thumbNail: {
+      borderRadius: 3,
+    },
+  },
+});
+
+export { Heading, Link, Image };

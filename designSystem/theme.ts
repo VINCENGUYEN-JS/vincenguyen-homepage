@@ -1,7 +1,8 @@
 import { extendTheme } from "@chakra-ui/react";
 
-import { Heading, Link } from "./componentStyle";
+import { Heading, Link, Image } from "./componentStyle";
 import styles from "./globalStyles";
+import spacing from "./spacing";
 import colorPalettes from "./colorPalettes";
 
 const fonts = {
@@ -23,9 +24,11 @@ const theme = extendTheme({
   components: {
     Heading,
     Link,
+    Image,
   },
   fonts,
   colors,
+  spacing,
   semanticTokens: {
     colors: colorPalettes,
   },
