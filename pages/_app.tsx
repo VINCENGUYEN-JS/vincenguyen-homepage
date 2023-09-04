@@ -1,7 +1,6 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import Layout from "../components/layouts/main";
 import theme from "../designSystem/theme";
-import Fonts from "../components/fonts";
 import { AnimatePresence } from "framer-motion";
 
 import type { AppProps } from "next/app";
@@ -10,14 +9,18 @@ import type { AppProps } from "next/app";
 
 const Website = ({ Component, pageProps, router }: AppProps) => {
   return (
-    <ChakraProvider theme={theme}>
-      <Fonts />
-      <Layout router={router}>
-        <AnimatePresence mode="wait" initial={true}>
-          <Component {...pageProps} key={router.route} />
-        </AnimatePresence>
-      </Layout>
-    </ChakraProvider>
+    <>
+      <style jsx global>{`
+        @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;700&display=swap");
+      `}</style>
+      <ChakraProvider theme={theme}>
+        <Layout router={router}>
+          <AnimatePresence mode="wait" initial={true}>
+            <Component {...pageProps} key={router.route} />
+          </AnimatePresence>
+        </Layout>
+      </ChakraProvider>
+    </>
   );
 };
 

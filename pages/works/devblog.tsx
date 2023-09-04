@@ -1,6 +1,6 @@
 import { Container, Link, List, ListItem } from "@chakra-ui/react";
-import { Title, WorkImage, Meta } from "../../components/work";
-import P from "../../components/paragraph";
+import { Title, WorkImage, Meta } from "../../components/work/work";
+import P from "../../components/typo/Paragraph";
 import Layout from "../../components/layouts/article";
 
 const Work = () => {

@@ -7,7 +7,7 @@ import {
   Divider,
   Button,
 } from "@chakra-ui/react";
-import NoFound from "../components/NoFound";
+import NoFound from "../components/nofound/NoFound";
 
 const NotFound = () => {
   return (

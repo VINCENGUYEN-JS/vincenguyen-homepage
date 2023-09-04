@@ -6,8 +6,8 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import Section from "../components/section";
-import { WorkGridItem } from "../components/GridItem";
+import Section from "../components/animation/Section";
+import { WorkGridItem } from "../components/griditem/GridItem";
 import Layout from "../components/layouts/article";
 
 import CustomHead from "../components/seo";

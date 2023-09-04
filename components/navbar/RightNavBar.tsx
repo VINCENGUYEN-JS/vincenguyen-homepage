@@ -1,6 +1,6 @@
 import React from "react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import AnimatedThemeToggleButton from "../ThemeToggleButton";
+import AnimatedThemeToggleButton from "../buttons/ThemeToggleButton";
 import {
   Box,
   Menu,

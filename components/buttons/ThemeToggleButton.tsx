@@ -2,9 +2,9 @@ import { IconButton, useColorModeValue, useColorMode } from "@chakra-ui/react";
 import { SunIcon, MoonIcon } from "@chakra-ui/icons";
 import useSound from "use-sound";
 
-import Motion from "./animation/Motion";
-import click from "../public/musics/click.mp3";
-import { composeFn } from "../helpers/utilities";
+import Motion from "../animation/Motion";
+import click from "../../public/musics/click.mp3";
+import { composeFn } from "../../helpers/utilities";
 
 const AnimatedThemeToggleButton = () => {
   const { toggleColorMode } = useColorMode();

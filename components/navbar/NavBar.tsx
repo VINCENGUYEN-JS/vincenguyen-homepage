@@ -1,4 +1,4 @@
-import Logo from "../logo";
+import Logo from "./Logo";
 import NextLink from "next/link";
 import {
   Container,

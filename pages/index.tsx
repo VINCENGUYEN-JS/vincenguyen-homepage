@@ -3,22 +3,23 @@ import {
   Container,
   Box,
   Heading,
-  // Image,
   Link,
   Button,
   List,
   ListItem,
+  Highlight,
   SimpleGrid,
 } from "@chakra-ui/react";
 import { IoLogoGithub, IoLogoYoutube, IoLogoLinkedin } from "react-icons/io5";
 
 import useTypewriter from "../hooks/useTypewriter";
-import Section from "../components/section";
+import Section from "../components/animation/Section";
 import Layout from "../components/layouts/article";
-import Paragraph from "../components/paragraph";
-import DownloadButton from "../components/DownloadButton";
-import { GridItem } from "../components/GridItem";
-import { BioSection, BioYear } from "../components/bio";
+import Paragraph from "../components/typo/Paragraph";
+import BackToTop from "../components/buttons/BackToTopButton";
+import DownloadButton from "../components/buttons/DownloadButton";
+import { GridItem } from "../components/griditem/GridItem";
+import { BioSection, BioYear } from "../components/typo/Bio";
 import CustomHead from "../components/seo";
 import thumbYoutube from "../public/images/pricefx-engineer-meetings.jpg";
 
@@ -37,6 +38,7 @@ const Page = () => {
         imageUrl="images/avartar.jpg"
         url="vincenguyen.dev"
       />
+      <BackToTop />
       <Container mt={5}>
         <Box
           borderRadius="lg"
@@ -58,23 +60,49 @@ const Page = () => {
             Work
           </Heading>
           <Paragraph>
-            As a front-end developer with more than 3 years of experience, my
-            job involves designing and implementing user interfaces for web and
-            mobile applications. I use a variety of technologies, including
-            HTML, CSS, and JavaScript, to create interactive, responsive, and
-            visually appealing designs that enhance the user experience. I work
-            closely with back-end developers and designers to ensure that the
-            final product is functional and meets the clients requirements. In
-            addition to coding, I also stay up-to-date on the latest design
-            trends and user experience best practices, and I am able to
-            communicate effectively with project managers, designers, and other
-            stakeholders to ensure that projects are delivered on time
+            <Highlight
+              query={[
+                "experienced front-end developer",
+                "infusing meaningful UX/UI elements into complex systems",
+                "TypeScript and React",
+                "Web Core",
+                "Webpack",
+                "design system",
+                "design guidelines",
+                "various types of tests",
+                "Cypress",
+                "staying updated",
+                "enthusiastic attitude",
+              ]}
+              styles={{ px: "1", py: "1", rounded: "full", bg: "yellow.100" }}
+            >
+              I&apos;m an experienced front-end developer with a strong skill
+              set in bridging the gap between system complexity and
+              user-friendly interfaces, particularly from an enterprise
+              perspective. I have a passion for infusing meaningful UX/UI
+              elements into complex systems, making them more intuitive and
+              user-friendly.. I excel in crafting captivating web and mobile app
+              designs, utilizing TypeScript and React to ensure seamless and
+              efficient user experiences. Proficient in setting up Webpack for
+              complex projects, I streamline development processes. A core
+              strength lies in my comprehensive understanding of Design Systems
+              for enterprise applications, encompassing elements like color
+              palettes, typography, and layout , etc. I meticulously align my
+              work with established design guidelines to enhance overall
+              coherence and user experience. For enterprise applications, I
+              consistently write various types of tests, including unit tests,
+              component tests, and automation tests using tools like Cypress.
+              This commitment to thorough testing ensures the reliability and
+              stability of the applications I work on. With a commitment to
+              staying updated on industry trends and an enthusiastic attitude to
+              learn new things and contribute to the company
+            </Highlight>
           </Paragraph>
           <Box textAlign="center" mt="6">
             <DownloadButton />
           </Box>
         </Section>
-        <Section delay={0.2} mb={6}>
+        <Section delay={0.2}>
           <Heading as="h3" variant="section">
             Experience
           </Heading>
@@ -87,13 +115,13 @@ const Page = () => {
             Software Engineer (Pricefx, Inc. · Full-time)
           </BioSection>
         </Section>
-        <Section delay={0.3} mb={6}>
+        <Section delay={0.3}>
           <Heading as="h3" variant="section">
             I ♥
           </Heading>
           <Paragraph>Art, Music, Photography </Paragraph>
         </Section>
-        <Section delay={0.4} mb={6}>
+        <Section delay={0.4}>
           <Heading as="h3" variant="section">
             On Web
           </Heading>
