@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { ArrowUpIcon } from "@chakra-ui/icons";
-import { Box, IconButton } from "@chakra-ui/react";
+import { Box, IconButton, useBreakpointValue } from "@chakra-ui/react";
 
 import debounce from "../../helpers/debounce";
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const detectDevice = useBreakpointValue({ base: "mobile", md: "computer" });
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -17,8 +18,16 @@ export default function ScrollToTop() {
   useEffect(() => {
     const toggleVisibility = () => {
       const target = document.documentElement; // Use the <html> element for the window
-      const isAtBottom =
-        target.scrollHeight - target.scrollTop === target.clientHeight;
+      let isAtBottom;
+      if (detectDevice === "mobile") {
+        const distance = 50;
+        isAtBottom =
+          target.scrollHeight - target.scrollTop <=
+          target.clientHeight + distance;
+      } else {
+        isAtBottom =
+          target.scrollHeight - target.scrollTop === target.clientHeight;
+      }
 
       if (isAtBottom) {
         setIsVisible(true);
@@ -32,7 +41,7 @@ export default function ScrollToTop() {
     window.addEventListener("scroll", debounceToggle);
 
     return () => window.removeEventListener("scroll", debounceToggle);
-  }, []);
+  }, [detectDevice]);
 
   return (
     <>

@@ -7,6 +7,7 @@ import {
   MenuItem,
   Avatar,
   MenuList,
+  Tooltip,
   MenuButton,
   IconButton,
 } from "@chakra-ui/react";
@@ -14,12 +15,14 @@ import Motion from "../animation/Motion";
 
 const AnimatedAvartar = () => (
   <Motion>
-    <Avatar
-      display={{ base: "none", md: "block" }}
-      name="Vince Nguyen"
-      size="md"
-      src="images/avartar.jpg"
-    />
+    <Tooltip hasArrow label="Nice to meet you" placement="right-end">
+      <Avatar
+        display={{ base: "none", md: "block" }}
+        name="Vince Nguyen"
+        size="md"
+        src="images/avartar.jpg"
+      />
+    </Tooltip>
   </Motion>
 );
 

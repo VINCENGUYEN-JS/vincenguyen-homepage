@@ -74,14 +74,14 @@ const Page = () => {
                 "staying updated",
                 "enthusiastic attitude",
               ]}
-              styles={{ px: "1", py: "1", rounded: "full", bg: "yellow.100" }}
+              styles={{ px: "1", py: "1", rounded: "full", bg: "teal.100" }}
             >
               I&apos;m an experienced front-end developer with a strong skill
               set in bridging the gap between system complexity and
               user-friendly interfaces, particularly from an enterprise
               perspective. I have a passion for infusing meaningful UX/UI
               elements into complex systems, making them more intuitive and
-              user-friendly.. I excel in crafting captivating web and mobile app
+              user-friendly. I excel in crafting captivating web and mobile app
               designs, utilizing TypeScript and React to ensure seamless and
               efficient user experiences. Proficient in setting up Webpack for
               complex projects, I streamline development processes. A core
