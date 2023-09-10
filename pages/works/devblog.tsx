@@ -1,11 +1,10 @@
 import { Container, Link, List, ListItem } from "@chakra-ui/react";
 import { Title, WorkImage, Meta } from "../../components/work/work";
 import P from "../../components/typo/Paragraph";
-import Layout from "../../components/layouts/article";
 
 const Work = () => {
   return (
-    <Layout>
+    <main>
       <Container mt={5}>
         <Title>Dev Blog</Title>
         <P>
@@ -31,7 +30,7 @@ const Work = () => {
         <WorkImage src="/images/works/manage-post.png" alt="manage-post" />
         <WorkImage src="/images/works/edit-post.png" alt="edit-post" />
       </Container>
-    </Layout>
+    </main>
   );
 };
 

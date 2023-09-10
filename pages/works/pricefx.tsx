@@ -1,11 +1,10 @@
 import { Container, Badge, Link, List, ListItem } from "@chakra-ui/react";
 import { Title, WorkImage, Meta } from "../../components/work/work";
 import P from "../../components/typo/Paragraph";
-import Layout from "../../components/layouts/article";
 
 const Work = () => {
   return (
-    <Layout>
+    <main>
       <Container mt={5}>
         <Title>
           Pricefx <Badge>2019</Badge>
@@ -40,7 +39,7 @@ const Work = () => {
           alt="calculation-grid-form"
         />
       </Container>
-    </Layout>
+    </main>
   );
 };
 
