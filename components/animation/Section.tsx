@@ -1,26 +1,21 @@
-import { motion, isValidMotionProp } from "framer-motion";
-import { chakra, shouldForwardProp } from "@chakra-ui/react";
-
-const StyledSection = chakra(motion.section, {
-  /**
-   * Allow motion props and non-Chakra props to be forwarded.
-   */
-  shouldForwardProp: (prop) =>
-    isValidMotionProp(prop) || shouldForwardProp(prop),
-});
+import styled from "@emotion/styled";
+import { CSSObject } from "@emotion/react"; // Import CSSObject from @emotion/react
 
 type SectionProps = {
   children: React.ReactNode;
-} & Parameters<typeof StyledSection>[0];
+  marginBottom?: string;
+};
+
+const hiddenSectionStyles = (props: SectionProps): CSSObject => ({
+  y: 10,
+  opacity: 0,
+  marginBottom: `${props.marginBottom}px`, // Add px unit here
+});
+
+const HiddenSection = styled.section<SectionProps>(hiddenSectionStyles); // Pass SectionProps to styled component
 
 const Section = (props: SectionProps) => (
-  <StyledSection
-    initial={{ y: 10, opacity: 0 }}
-    {...props}
-    // transition={{ duration: 1, delay }}
-  >
-    {props.children}
-  </StyledSection>
+  <HiddenSection {...props}>{props.children}</HiddenSection>
 );
 
 export default Section;

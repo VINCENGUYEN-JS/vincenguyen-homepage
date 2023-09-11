@@ -1,6 +1,17 @@
-import NextLink from "next/link";
 import { Image, ImgProps } from "@chakra-ui/react";
-import { Box, Text, LinkBox, LinkOverlay } from "@chakra-ui/react";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
+import {
+  Box,
+  Text,
+  LinkBox,
+  Card,
+  LinkOverlay,
+  CardBody,
+  CardFooter,
+  Button,
+  Heading,
+  Divider,
+} from "@chakra-ui/react";
 
 type GridItemProps = {
   children: React.ReactNode;
@@ -38,36 +49,44 @@ export const GridItem = ({
   );
 };
 
-//ID LINK
-export const WorkGridItem = ({
-  children,
-  id,
-  title,
-  thumbnail,
-}: GridItemProps) => (
-  <Box w="100%" textAlign="center">
-    <LinkBox
-      as={NextLink}
-      href={`/works/${id}`}
-      scroll={false}
-      cursor="pointer"
-    >
-      <div>
-        <Image
-          src={thumbnail.src}
-          alt={title}
-          className="grid-item-thumbnail"
-          placeholder="blur"
-          loading="lazy"
-        />
-      </div>
+type WorkCardProps = {
+  title: string;
+  thumbnail: ImgProps;
+};
 
-      <LinkOverlay as="div" href={`/works/${id}`}>
-        <Text mt={2} fontSize={20}>
-          {title}
-        </Text>
-      </LinkOverlay>
-      <Text fontSize={14}>{children}</Text>
-    </LinkBox>
-  </Box>
+export const WorkCard = ({ title, thumbnail }: WorkCardProps) => (
+  <Card>
+    <Image
+      src={thumbnail.src}
+      alt={title}
+      className="grid-item-thumbnail"
+      objectFit="cover"
+    />
+    <CardBody>
+      <Heading size="md">Pricefx</Heading>
+      <Text py="2">
+        <strong>A leading SaaS Pricing</strong> (Price Optimization &
+        Management) and CPQ (Configure-Price-Quote) vendor. Pricefx is the
+        global leader in cloud native SaaS software for price optimization and
+        management, serving global 1000 companies worldwide. Our product boasts
+        <strong> outstanding customer reviews </strong>ranging from small
+        companies to renowned names such as
+        <strong> Michelin, Sonoco, Danone, Avery Dennison</strong> and{" "}
+        <strong> Bosch.</strong>
+      </Text>
+    </CardBody>
+    <Divider />
+    <CardFooter justify="center">
+      <Button
+        leftIcon={<ExternalLinkIcon />}
+        variant="solid"
+        colorScheme="teal"
+        onClick={() => {
+          window.open("https://www.youtube.com/watch?v=VcSDX-B1nrY&t=1s");
+        }}
+      >
+        Awesome UX/UI
+      </Button>
+    </CardFooter>
+  </Card>
 );

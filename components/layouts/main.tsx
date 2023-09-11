@@ -15,7 +15,7 @@ type MainProps = {
 
 const Main = ({ children, router }: MainProps) => {
   return (
-    <Box as="main" pb={8}>
+    <Box as="main" pb={8} mb={8}>
       <Head>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <link rel="icon" href={favicon.src} />

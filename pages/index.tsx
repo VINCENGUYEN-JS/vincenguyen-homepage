@@ -8,7 +8,6 @@ import {
   List,
   ListItem,
   Highlight,
-  SimpleGrid,
 } from "@chakra-ui/react";
 import { IoLogoGithub, IoLogoYoutube, IoLogoLinkedin } from "react-icons/io5";
 
@@ -58,7 +57,7 @@ const Page = () => {
               <p>Software Engineer / Designer</p>
             </Box>
           </Box>
-          <Section marginBottom="4">
+          <Section marginBottom="16">
             <Heading as="h3" variant="section">
               Work
             </Heading>
@@ -109,7 +108,7 @@ const Page = () => {
               <DownloadButton />
             </Box>
           </Section>
-          <Section marginBottom="4">
+          <Section marginBottom="16">
             <Heading as="h3" variant="section">
               Experience
             </Heading>
@@ -122,13 +121,13 @@ const Page = () => {
               Software Engineer (Pricefx, Inc. · Full-time)
             </BioSection>
           </Section>
-          <Section marginBottom="4">
+          <Section marginBottom="16">
             <Heading as="h3" variant="section">
               I ♥
             </Heading>
             <Paragraph>Art, Music, Photography </Paragraph>
           </Section>
-          <Section>
+          <Section marginBottom="16">
             <Heading as="h3" variant="section">
               On Web
             </Heading>
@@ -174,7 +173,7 @@ const Page = () => {
               </ListItem>
             </List>
           </Section>
-          <SimpleGrid column={[1, 2, 2]} gap={6}>
+          <Section>
             <GridItem
               href="https://www.youtube.com/watch?v=YtslW2rObDo&t=582s"
               title="Business trip to Prague"
@@ -182,7 +181,7 @@ const Page = () => {
             >
               My Youtube Channel
             </GridItem>
-          </SimpleGrid>
+          </Section>
         </Container>
       </main>
     </>

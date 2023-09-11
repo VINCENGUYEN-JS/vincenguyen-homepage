@@ -1,29 +1,10 @@
-import {
-  Container,
-  Box,
-  Heading,
-  SimpleGrid,
-  useColorModeValue,
-} from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { Container, Heading } from "@chakra-ui/react";
 import Section from "../components/animation/Section";
-import { WorkGridItem } from "../components/griditem/GridItem";
+import { WorkCard } from "../components/griditem/GridItem";
 
 import useAnimation from "../hooks/useAnimation";
 import CustomHead from "../components/seo";
 import thumbPricefx from "../public/images/works/pricefx-eyecatch.png";
-import thumbDevBlog from "../public/images/works/devblog.png";
-import thumbDentist from "../public/images/works/dentish-eyecatch.png";
-
-const Animation = ({ children }: { children: React.ReactNode }) => (
-  <motion.div
-    initial={{ opacity: 0, x: -120 }}
-    animate={{ opacity: 1, x: 0 }}
-    transition={{ duration: 1.5 }}
-  >
-    {children}
-  </motion.div>
-);
 
 const Works = () => {
   const ref = useAnimation({ elementToAnimate: "section", staggerTime: 0.2 });
@@ -37,49 +18,12 @@ const Works = () => {
       />
       <main>
         <Container mt={3} ref={ref}>
-          <Animation>
-            <Box
-              borderRadius="lg"
-              bg={useColorModeValue("whiteAlpha.500", "whiteAlpha.200")}
-              p={3}
-              mb={6}
-              textAlign="center"
-            >
-              This is a collection of my professional works
-            </Box>
-          </Animation>
-          <Heading as="h3" fontSize={20} mb={4}>
+          <Heading as="h3" variant="section" fontSize={20} mb={4}>
             Works
           </Heading>
-          <SimpleGrid columns={[1, 1, 2]} gap={6}>
-            <Section marginBottom="4">
-              <WorkGridItem
-                id="pricefx"
-                title="Pricefx"
-                thumbnail={thumbPricefx}
-              >
-                Pricing software
-              </WorkGridItem>
-            </Section>
-            <Section marginBottom="4">
-              <WorkGridItem
-                id="devblog"
-                title="DevBlog"
-                thumbnail={thumbDevBlog}
-              >
-                A blog to share content with the others
-              </WorkGridItem>
-            </Section>
-            <Section marginBottom="4">
-              <WorkGridItem
-                id="dentist"
-                title="Dentist"
-                thumbnail={thumbDentist}
-              >
-                Your Number 1 Dental Clinic in Vietnam for Dental Implants
-              </WorkGridItem>
-            </Section>
-          </SimpleGrid>
+          <Section marginBottom="4">
+            <WorkCard title="Pricefx" thumbnail={thumbPricefx} />
+          </Section>
         </Container>
       </main>
     </>

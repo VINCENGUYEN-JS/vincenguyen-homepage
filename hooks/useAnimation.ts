@@ -19,7 +19,7 @@ const useAnimation = (props: useAnimationProps) => {
       },
       {
         duration: 1,
-        delay: stagger(staggerTime),
+        delay: stagger(staggerTime, { startDelay: 0.15 }),
       }
     );
   }, []);
