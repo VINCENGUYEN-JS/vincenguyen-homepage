@@ -26,7 +26,7 @@ import thumbYoutube from "../public/images/pricefx-engineer-meetings.jpg";
 
 const Page = () => {
   const displayText = useTypewriter(
-    "Hello , I 'm a Frontend developer based in VietNam!",
+    "👋 I 'm a Frontend developer based in VietNam!",
     60
   );
   const ref = useAnimation({ elementToAnimate: "section", staggerTime: 0.5 });
@@ -82,24 +82,24 @@ const Page = () => {
                   whiteSpace: "normal",
                 }}
               >
-                I&apos;m an experienced front-end developer with a strong skill
+                Vince is an experienced front-end developer with a strong skill
                 set in bridging the gap between system complexity and
                 user-friendly interfaces, particularly from an enterprise
-                perspective. I have a passion for meaningful UX/UI elements into
-                complex systems, making them more intuitive and user-friendly. I
-                excel in crafting captivating web and mobile app designs,
+                perspective. He has a passion for meaningful UX/UI elements into
+                complex systems, making them more intuitive and user-friendly.
+                He excel in crafting captivating web and mobile app designs,
                 utilizing TypeScript and React to ensure seamless and efficient
                 user experiences. Proficient in setting up Webpack for complex
-                projects, I streamline development processes. A core strength
-                lies in my comprehensive understanding of Design Systems for
+                projects, He streamline development processes. A core strength
+                lies in his comprehensive understanding of Design Systems for
                 enterprise applications, encompassing elements like color
-                palettes, typography, and layout , etc. I meticulously align my
-                work with established design guidelines to enhance overall
-                coherence and user experience. For enterprise applications, I
+                palettes, typography, and layout , etc. He meticulously align
+                his work with established design guidelines to enhance overall
+                coherence and user experience. For enterprise applications, He
                 consistently write various types of tests, including unit tests,
                 component tests, and automation tests using tools like Cypress.
                 This commitment to thorough testing ensures the reliability and
-                stability of the applications I work on. With a commitment to
+                stability of the applications He works on. With a commitment to
                 staying updated on industry trends and an enthusiastic attitude
                 to learn new things and contribute to the company
               </Highlight>

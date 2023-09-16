@@ -2,6 +2,7 @@ import Head from "next/head";
 import Navbar from "../navbar/NavBar";
 import { Box, Container } from "@chakra-ui/react";
 import { NextRouter } from "next/router";
+import { useRouter } from "next/router";
 
 import favicon from "../../public/favicon/favicon.ico";
 import favicon16 from "../../public/favicon/favicon-16x16.png";
@@ -14,6 +15,7 @@ type MainProps = {
 };
 
 const Main = ({ children, router }: MainProps) => {
+  const route = useRouter();
   return (
     <Box as="main" pb={8} mb={8}>
       <Head>
@@ -24,7 +26,14 @@ const Main = ({ children, router }: MainProps) => {
         <link rel="apple-touch-icon" sizes="180x180" href={appleIcon.src} />
       </Head>
       <Navbar path={router.asPath} />
-      <Container pt={16}>{children}</Container>
+      {route.pathname === "/posts" ? (
+        <Container pt={16} maxW="container.md">
+          {children}
+        </Container>
+      ) : (
+        <Container pt={16}>{children}</Container>
+      )}
+      )
     </Box>
   );
 };

@@ -1,31 +1,30 @@
 import { Heading } from "@chakra-ui/react";
-import Section from "../components/animation/Section";
-import { WorkCard } from "../components/griditem/GridItem";
 
 import useAnimation from "../hooks/useAnimation";
+import Section from "../components/animation/Section";
 import CustomHead from "../components/seo";
-import thumbPricefx from "../public/images/works/pricefx-eyecatch.png";
+import PostCard from "../components/postcard/PostCard";
 
-const Works = () => {
+const Posts = () => {
   const ref = useAnimation({ elementToAnimate: "section", staggerTime: 0.2 });
   return (
     <>
       <CustomHead
         title="Vince Nguyen: Frontend Developer Portfolio"
-        description="Explore Vince Nguyen's impressive portfolio of projects developed using React.js. Discover a collection of modern, interactive, and responsive web applications."
+        description="Explore Vince Nguyen's blog posts"
         imageUrl="images/avartar.jpg"
         url="vincenguyen.dev/works"
       />
       <main ref={ref}>
         <Heading as="h3" variant="section" fontSize={20} mb={4}>
-          Works
+          Posts
         </Heading>
         <Section marginBottom="4">
-          <WorkCard title="Pricefx" thumbnail={thumbPricefx} />
+          <PostCard />
         </Section>
       </main>
     </>
   );
 };
 
-export default Works;
+export default Posts;
