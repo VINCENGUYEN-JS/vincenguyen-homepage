@@ -16,11 +16,18 @@ const Posts = () => {
         url="vincenguyen.dev/works"
       />
       <main ref={ref}>
-        <Heading as="h3" variant="section" fontSize={20} mb={4}>
+        <Heading as="h1" size="xl" mb={8} mt={8} textAlign="center">
           Posts
         </Heading>
         <Section marginBottom="4">
-          <PostCard />
+          <PostCard
+            topic="CSS/Images/UI-UX"
+            title="Understand images for web developers"
+            subTitle="Images are hard to get"
+            link="https://vincenguyen.hashnode.dev/understand-images-for-web-developers"
+            altImg="images"
+            imgURL="https://cdn.hashnode.com/res/hashnode/image/stock/unsplash/yUTgdQkbd7c/upload/9bb906781fd987302ed7ecd030d9dc70.jpeg?w=1600&h=840&fit=crop&crop=entropy&auto=compress,format&format=webp"
+          />
         </Section>
       </main>
     </>

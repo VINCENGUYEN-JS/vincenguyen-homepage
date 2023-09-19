@@ -10,37 +10,57 @@ import {
   LinkOverlay,
 } from "@chakra-ui/react";
 
-const PostCard = () => (
+type PostCardProps = {
+  topic: string;
+  title: string;
+  subTitle: string;
+  link: string;
+  imgURL: string;
+  altImg: string;
+};
+
+function formatInput(input: string): string {
+  // Split the input string by '/'
+  const parts = input.split("/").map((part) => part.trim());
+
+  // Join the parts with ' / ' separator
+  const formattedInput = parts.join(" / ");
+
+  return formattedInput;
+}
+
+const PostCard = (props: PostCardProps) => (
   <Card
     direction={{ base: "column", sm: "row" }}
     overflow="hidden"
     variant="outline"
-    boxShadow="xl"
+    gap="4"
+    shadow="md"
+    borderWidth="1px"
   >
     <Image
       objectFit="cover"
-      maxW={{ base: "100%", sm: "200px" }}
-      src="https://images.unsplash.com/photo-1667489022797-ab608913feeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw5fHx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60"
-      alt="Caffe Latte"
+      maxW={{ base: "100%", sm: "55%" }}
+      src={props.imgURL}
+      alt={props.altImg}
     />
 
-    <Stack>
+    <Stack spacing={{ sm: 4 }} pt={{ base: 1, sm: 12 }} pb={{ base: 1, sm: 8 }}>
       <CardBody>
-        <Text py="2">Frontend Development / JS</Text>
-        <Heading py="2" size="xl" fontWeight="semibold">
-          My first blog
-        </Heading>
-        <Text py="2" fontSize="2xl">
-          Understand how JS works
+        <Text py="2" textTransform="uppercase" fontSize="xl">
+          {formatInput(props.topic)}
+        </Text>
+        <Text py="2" fontSize="3xl" fontWeight="semibold">
+          {props.title}
+        </Text>
+        <Text py="2" fontSize="xl">
+          {props.subTitle}
         </Text>
       </CardBody>
 
       <CardFooter>
         <Heading size="md" my="2" fontWeight="extrabold">
-          <LinkOverlay
-            target="_blank"
-            href="https://medium.com/@nguyenquangv95/this-is-my-first-blog-282b45ee4b50"
-          >
+          <LinkOverlay target="_blank" href={props.link}>
             READ MORE
           </LinkOverlay>
         </Heading>

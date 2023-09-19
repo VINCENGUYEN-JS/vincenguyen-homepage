@@ -145,7 +145,7 @@ const Page = () => {
               </ListItem>
               <ListItem>
                 <Link
-                  href="https://www.youtube.com/channel/UCzA_0Qzz-0E-plipIsF3Jew"
+                  href="https://www.youtube.com/watch?v=YtslW2rObDo&t=6s"
                   target="_blank"
                 >
                   <Button
@@ -159,7 +159,7 @@ const Page = () => {
               </ListItem>
               <ListItem>
                 <Link
-                  href="https://www.linkedin.com/in/vinh-nguyen-quang-44683a1b2/"
+                  href="https://www.linkedin.com/in/vincenguyendev"
                   target="_blank"
                 >
                   <Button

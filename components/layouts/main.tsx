@@ -27,13 +27,12 @@ const Main = ({ children, router }: MainProps) => {
       </Head>
       <Navbar path={router.asPath} />
       {route.pathname === "/posts" ? (
-        <Container pt={16} maxW="container.md">
+        <Container pt={16} maxW="4xl">
           {children}
         </Container>
       ) : (
         <Container pt={16}>{children}</Container>
       )}
-      )
     </Box>
   );
 };
