@@ -13,11 +13,13 @@
   "author": "Vince Nguyen",
   "license": "MIT",
   "dependencies": {
+    "@apollo/client": "^3.8.4",
     "@chakra-ui/icons": "^2.0.15",
     "@chakra-ui/react": "^2.4.6",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "framer-motion": "10.8.0",
+    "graphql": "^16.8.1",
     "next": "^13.4.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
