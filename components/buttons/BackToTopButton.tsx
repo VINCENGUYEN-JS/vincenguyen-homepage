@@ -18,15 +18,18 @@ export default function ScrollToTop() {
   useEffect(() => {
     const toggleVisibility = () => {
       const target = document.documentElement; // Use the <html> element for the window
+      let distance;
       let isAtBottom;
       if (detectDevice === "mobile") {
-        const distance = 50;
+        distance = 50;
         isAtBottom =
           target.scrollHeight - target.scrollTop <=
           target.clientHeight + distance;
       } else {
+        distance = 30;
         isAtBottom =
-          target.scrollHeight - target.scrollTop === target.clientHeight;
+          target.scrollHeight - target.scrollTop <=
+          target.clientHeight + distance;
       }
 
       if (isAtBottom) {
