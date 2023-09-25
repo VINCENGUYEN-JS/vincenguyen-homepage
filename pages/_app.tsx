@@ -1,4 +1,5 @@
 import { ChakraProvider } from "@chakra-ui/react";
+import ReactGA from "react-ga";
 import Layout from "../components/layouts/main";
 import theme from "../designSystem/theme";
 import { AnimatePresence } from "framer-motion";
@@ -13,7 +14,10 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const TRACKING_ID = "G-H09LB4QL35";
+
 const Website = ({ Component, pageProps, router }: AppProps) => {
+  ReactGA.initialize(TRACKING_ID, { debug: true });
   return (
     <>
       <style jsx global>{`

@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   Container,
   Box,
@@ -19,6 +20,7 @@ import { GridItem } from "../components/griditem/GridItem";
 import { BioSection, BioYear } from "../components/typo/Bio";
 import Section from "../components/animation/Section";
 import useAnimation from "../hooks/useAnimation";
+
 import CustomHead from "../components/seo";
 import thumbYoutube from "../public/images/pricefx-engineer-meetings.jpg";
 

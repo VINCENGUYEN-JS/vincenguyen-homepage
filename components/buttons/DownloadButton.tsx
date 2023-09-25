@@ -2,11 +2,15 @@ import React from "react";
 import { Button } from "@chakra-ui/react";
 import { DownloadIcon } from "@chakra-ui/icons";
 
+import useAnalyticsEventTracker from "../../hooks/useAnalyticsEventTracker";
+
 const DownloadButton: React.FC = () => {
   const [isLoading, setLoading] = React.useState(false);
+  const gaEventTracker = useAnalyticsEventTracker("Download profile");
 
   const handleDownload = async () => {
     setLoading(true);
+    gaEventTracker("call");
 
     try {
       // Simulate a delay

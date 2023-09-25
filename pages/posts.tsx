@@ -5,7 +5,6 @@ import {
   FormControl,
   FormLabel,
   Switch,
-  Stack,
 } from "@chakra-ui/react";
 import { useQuery } from "@apollo/client";
 
@@ -49,25 +48,27 @@ const Post = () => {
         <Heading as="h1" size="xl" mb={8} mt={8} textAlign="center">
           Post
         </Heading>
-        <FormControl>
-          <Stack direction={["column", "row"]} spacing="24px" mb="8">
-            <FormLabel htmlFor="isChecked">Top popular posts</FormLabel>
-            <Switch
-              id="isChecked"
-              onChange={() => {
-                if (!toggle) {
-                  setBlogPost((posts) => {
-                    const newPosts = sortByViews(posts);
-                    return newPosts;
-                  });
-                } else {
-                  setBlogPost(orignalBlogPost.current);
-                }
-                setToggle((toggle) => !toggle);
-              }}
-            />
-          </Stack>
+        <FormControl display="flex" alignItems="center" mb="8">
+          <FormLabel htmlFor="isChecked" mb="0">
+            Top popular posts
+          </FormLabel>
+          <Switch
+            size="md"
+            id="isChecked"
+            onChange={() => {
+              if (!toggle) {
+                setBlogPost((posts) => {
+                  const newPosts = sortByViews(posts);
+                  return newPosts;
+                });
+              } else {
+                setBlogPost(orignalBlogPost.current);
+              }
+              setToggle((toggle) => !toggle);
+            }}
+          />
         </FormControl>
+
         {error ? (
           <Error message={error.message} />
         ) : (

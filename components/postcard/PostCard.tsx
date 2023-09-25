@@ -22,7 +22,6 @@ type PostCardProps = {
   imgURL: string;
   altImg: string;
   views: string;
-
   readTimeInMinutes: string;
 };
 
@@ -32,7 +31,6 @@ const PostCard = (props: PostCardProps) => {
       direction={{ base: "column", sm: "row" }}
       overflow="hidden"
       variant="outline"
-      gap="4"
       shadow="md"
       borderWidth="1px"
     >
@@ -41,27 +39,29 @@ const PostCard = (props: PostCardProps) => {
         src={props.imgURL}
         alt={props.altImg}
         maxW={{ base: "100%", sm: "45%" }}
+        height={{ base: "auto", sm: "350" }}
       />
-      <Stack spacing={{ sm: 4 }} pb={{ base: 1, sm: 8 }}>
+      <Stack>
         <CardBody>
-          {props.tags.map((tag, idx) => (
-            <Tag
-              key={idx}
-              colorScheme="purple"
-              marginInlineEnd="1"
-              marginBlockEnd="2"
-            >
-              {tag.name}
-            </Tag>
-          ))}
-          <br />
-          <Tag>Read : {props.readTimeInMinutes} mins</Tag>
-
-          <Text fontSize="3xl" fontWeight="semibold" lineHeight="normal">
-            {props.title}
-          </Text>
-
-          <Text fontSize="xl">{props.subTitle}</Text>
+          <>
+            {props.tags.map((tag, idx) => (
+              <Tag
+                key={idx}
+                colorScheme="purple"
+                marginInlineEnd="1"
+                marginBlockEnd="2"
+              >
+                {tag.name}
+              </Tag>
+            ))}
+            <Tag>Read : {props.readTimeInMinutes} mins</Tag>
+          </>
+          <Stack spacing="2" pt="4">
+            <Text fontSize="3xl" fontWeight="semibold" lineHeight="normal">
+              {props.title}
+            </Text>
+            <Text fontSize="xl">{props.subTitle}</Text>
+          </Stack>
         </CardBody>
 
         <CardFooter justify="space-between" flexWrap="wrap">
