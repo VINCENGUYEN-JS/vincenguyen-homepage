@@ -1,55 +1,91 @@
-import { Heading, Skeleton } from "@chakra-ui/react";
+import React, { useEffect } from "react";
+import {
+  Heading,
+  Skeleton,
+  FormControl,
+  FormLabel,
+  Switch,
+  Stack,
+} from "@chakra-ui/react";
 import { useQuery } from "@apollo/client";
 
-import useAnimation from "../hooks/useAnimation";
-import Section from "../components/animation/Section";
 import CustomHead from "../components/seo";
 import PostCard from "../components/postcard/PostCard";
 import BackToTop from "../components/buttons/BackToTopButton";
 import Error from "../components/error/Error";
 import { BLOG_QUERY } from "../graphql-client/queries";
 
-const Posts = () => {
+const selectPost = (data: any) =>
+  data?.publication?.posts?.edges.map(({ node }: any) => node);
+
+function sortByViews(posts: Array<any>) {
+  const sortedArray = [...posts]; // Create a copy of the current state array
+  sortedArray.sort((a, b) => b.views - a.views); // Sort by views in descending order
+  return sortedArray;
+}
+
+const Post = () => {
   const { data, loading, error } = useQuery(BLOG_QUERY);
-  const ref = useAnimation({
-    elementToAnimate: "section",
-    staggerTime: 0.2,
-    loading,
-    error,
-  });
-  const blogPostDetail = data?.publication?.posts?.edges;
+  const [blogPost, setBlogPost] = React.useState<Array<any>>([]);
+  const orignalBlogPost = React.useRef(blogPost);
+  const [toggle, setToggle] = React.useState(false);
+
+  useEffect(() => {
+    const blogPost = selectPost(data);
+    setBlogPost(blogPost);
+    orignalBlogPost.current = blogPost;
+  }, [data]);
 
   return (
     <>
       <CustomHead
         title="Vince Nguyen: Frontend Developer Portfolio"
-        description="Explore Vince Nguyen's blog posts"
+        description="Explore Vince Nguyen's blog post"
         imageUrl="images/avartar.jpg"
         url="vincenguyen.dev/works"
       />
       <BackToTop />
-      <main ref={ref}>
+      <main>
         <Heading as="h1" size="xl" mb={8} mt={8} textAlign="center">
-          Posts
+          Post
         </Heading>
+        <FormControl>
+          <Stack direction={["column", "row"]} spacing="24px" mb="8">
+            <FormLabel htmlFor="isChecked">Top popular posts</FormLabel>
+            <Switch
+              id="isChecked"
+              onChange={() => {
+                if (!toggle) {
+                  setBlogPost((posts) => {
+                    const newPosts = sortByViews(posts);
+                    return newPosts;
+                  });
+                } else {
+                  setBlogPost(orignalBlogPost.current);
+                }
+                setToggle((toggle) => !toggle);
+              }}
+            />
+          </Stack>
+        </FormControl>
         {error ? (
           <Error message={error.message} />
         ) : (
-          blogPostDetail?.map(({ node }: any, idx: number) => (
-            <Section marginBottom="16" key={idx}>
+          blogPost?.map((post: any, idx: number) => (
+            <section key={idx} style={{ marginBottom: 16 }}>
               <Skeleton isLoaded={!loading}>
                 <PostCard
-                  tags={node.tags}
-                  title={node.title}
-                  subTitle={node.subtitle}
-                  link={node.url}
-                  readTimeInMinutes={node.readTimeInMinutes}
-                  altImg={node.seo.title}
-                  imgURL={node.coverImage.url}
-                  views={node.views}
+                  tags={post.tags}
+                  title={post.title}
+                  subTitle={post.subtitle}
+                  link={post.url}
+                  readTimeInMinutes={post.readTimeInMinutes}
+                  altImg={post.seo.title}
+                  imgURL={post.coverImage.url}
+                  views={post.views}
                 />
               </Skeleton>
-            </Section>
+            </section>
           ))
         )}
       </main>
@@ -57,4 +93,4 @@ const Posts = () => {
   );
 };
 
-export default Posts;
+export default Post;
