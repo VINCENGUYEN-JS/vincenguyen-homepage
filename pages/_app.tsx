@@ -16,12 +16,18 @@ const client = new ApolloClient({
 
 const MEASUREMENT_ID = "G-7LCVZG182Y";
 
-const Website = ({ Component, pageProps, router }: AppProps) => {
+const trackingApplication = () => {
   ReactGA.initialize(MEASUREMENT_ID);
-  ReactGA.send({
-    hitType: "pageView",
-    page: window.location.pathname,
-  });
+  if (typeof window !== "undefined") {
+    ReactGA.send({
+      hitType: "pageView",
+      page: window.location.pathname,
+    });
+  }
+};
+
+const Website = ({ Component, pageProps, router }: AppProps) => {
+  trackingApplication();
   return (
     <>
       <style jsx global>{`
