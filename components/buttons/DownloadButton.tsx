@@ -10,7 +10,7 @@ const DownloadButton: React.FC = () => {
 
   const handleDownload = async () => {
     setLoading(true);
-    gaEventTracker("call");
+    gaEventTracker("download", "download resume");
 
     try {
       // Simulate a delay

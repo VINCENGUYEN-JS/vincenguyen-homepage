@@ -50,7 +50,7 @@ const Post = () => {
         </Heading>
         <FormControl display="flex" alignItems="center" mb="8">
           <FormLabel htmlFor="isChecked" mb="0">
-            Top popular posts
+            🔥 Top popular posts
           </FormLabel>
           <Switch
             size="md"
@@ -73,20 +73,18 @@ const Post = () => {
           <Error message={error.message} />
         ) : (
           blogPost?.map((post: any, idx: number) => (
-            <section key={idx} style={{ marginBottom: 16 }}>
-              <Skeleton isLoaded={!loading}>
-                <PostCard
-                  tags={post.tags}
-                  title={post.title}
-                  subTitle={post.subtitle}
-                  link={post.url}
-                  readTimeInMinutes={post.readTimeInMinutes}
-                  altImg={post.seo.title}
-                  imgURL={post.coverImage.url}
-                  views={post.views}
-                />
-              </Skeleton>
-            </section>
+            <Skeleton key={idx} mb="8" isLoaded={!loading}>
+              <PostCard
+                tags={post.tags}
+                title={post.title}
+                subTitle={post.subtitle}
+                link={post.url}
+                readTimeInMinutes={post.readTimeInMinutes}
+                altImg={post.seo.title}
+                imgURL={post.coverImage.url}
+                views={post.views}
+              />
+            </Skeleton>
           ))
         )}
       </main>
