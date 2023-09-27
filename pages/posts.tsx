@@ -141,7 +141,7 @@ const Post = () => {
                             >
                               {post.title}
                             </Text>
-                            <Text fontSize="xl">{post.subTitle}</Text>
+                            <Text fontSize="xl">{post.subtitle}</Text>
                           </Stack>
                         </>
                       );
@@ -149,7 +149,7 @@ const Post = () => {
                     renderFooter={() => (
                       <>
                         <Heading size="md" my="2" fontWeight="extrabold">
-                          <LinkOverlay target="_blank" href={post.link}>
+                          <LinkOverlay target="_blank" href={post.url}>
                             READ MORE
                           </LinkOverlay>
                         </Heading>
