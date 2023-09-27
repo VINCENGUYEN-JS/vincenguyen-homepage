@@ -1,5 +1,6 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import ReactGA from "react-ga4";
+import Script from "next/script";
+
 import Layout from "../components/layouts/main";
 import theme from "../designSystem/theme";
 import { AnimatePresence } from "framer-motion";
@@ -14,25 +15,32 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const MEASUREMENT_ID = "G-7LCVZG182Y";
-
-const trackingApplication = () => {
-  ReactGA.initialize(MEASUREMENT_ID);
-  if (typeof window !== "undefined") {
-    ReactGA.send({
-      hitType: "pageView",
-      page: window.location.pathname,
-    });
-  }
-};
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_MEASUREMENT_ID;
 
 const Website = ({ Component, pageProps, router }: AppProps) => {
-  trackingApplication();
   return (
     <>
       <style jsx global>{`
         @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;700&display=swap");
       `}</style>
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+      />
+      <Script
+        id="googleAnalytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+        }}
+      />
       <ChakraProvider theme={theme}>
         <ApolloProvider client={client}>
           <Layout router={router}>

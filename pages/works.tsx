@@ -11,7 +11,7 @@ const Works = () => {
   return (
     <>
       <CustomHead
-        title="Vince Nguyen: Frontend Developer Portfolio"
+        title="Vince Nguyen: Works"
         description="Explore Vince Nguyen's impressive portfolio of projects developed using React.js. Discover a collection of modern, interactive, and responsive web applications."
         imageUrl="images/avartar.jpg"
         url="vincenguyen.dev/works"

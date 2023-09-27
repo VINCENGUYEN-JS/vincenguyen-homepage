@@ -4,4 +4,4 @@ tsconfig.tsbuildinfo
 .next
 dist
 .vercel
-.env
+.env.*

@@ -5,7 +5,15 @@ import {
   FormControl,
   FormLabel,
   Switch,
+  Image,
+  Stack,
+  Text,
+  Tag,
+  Box,
+  SkeletonText,
+  LinkOverlay,
 } from "@chakra-ui/react";
+import { ViewIcon } from "@chakra-ui/icons";
 import { useQuery } from "@apollo/client";
 
 import CustomHead from "../components/seo";
@@ -26,19 +34,21 @@ function sortByViews(posts: Array<any>) {
 const Post = () => {
   const { data, loading, error } = useQuery(BLOG_QUERY);
   const [blogPost, setBlogPost] = React.useState<Array<any>>([]);
-  const orignalBlogPost = React.useRef(blogPost);
   const [toggle, setToggle] = React.useState(false);
+  const orignalBlogPost = React.useRef(blogPost);
 
   useEffect(() => {
-    const blogPost = selectPost(data);
-    setBlogPost(blogPost);
-    orignalBlogPost.current = blogPost;
+    if (data) {
+      const blogPost = selectPost(data);
+      setBlogPost(blogPost);
+      orignalBlogPost.current = blogPost;
+    }
   }, [data]);
 
   return (
     <>
       <CustomHead
-        title="Vince Nguyen: Frontend Developer Portfolio"
+        title="Vince Nguyen:Blog Posts"
         description="Explore Vince Nguyen's blog post"
         imageUrl="images/avartar.jpg"
         url="vincenguyen.dev/works"
@@ -72,20 +82,85 @@ const Post = () => {
         {error ? (
           <Error message={error.message} />
         ) : (
-          blogPost?.map((post: any, idx: number) => (
-            <Skeleton key={idx} mb="8" isLoaded={!loading}>
-              <PostCard
-                tags={post.tags}
-                title={post.title}
-                subTitle={post.subtitle}
-                link={post.url}
-                readTimeInMinutes={post.readTimeInMinutes}
-                altImg={post.seo.title}
-                imgURL={post.coverImage.url}
-                views={post.views}
-              />
-            </Skeleton>
-          ))
+          <>
+            {loading
+              ? Array(3)
+                  .fill(0)
+                  .map((_, idx) => (
+                    <Skeleton key={idx}>
+                      <PostCard
+                        renderLeft={() => (
+                          <Box
+                            maxW={{ base: "100%", sm: "45%" }}
+                            height={{ base: "auto", sm: "350" }}
+                          />
+                        )}
+                        renderBody={() => (
+                          <SkeletonText
+                            mt="4"
+                            noOfLines={4}
+                            spacing="4"
+                            skeletonHeight="2"
+                          />
+                        )}
+                        renderFooter={() => <SkeletonText />}
+                      />
+                    </Skeleton>
+                  ))
+              : blogPost?.map((post, idx) => (
+                  <PostCard
+                    key={idx}
+                    renderLeft={() => (
+                      <Image
+                        objectFit="cover"
+                        src={post.coverImage.url}
+                        alt={post.seo.title}
+                        maxW={{ base: "100%", sm: "45%" }}
+                        height={{ base: "auto", sm: "350" }}
+                      />
+                    )}
+                    renderBody={() => {
+                      return (
+                        <>
+                          {post.tags.map((tag: any, idx: number) => (
+                            <Tag
+                              key={idx}
+                              colorScheme="purple"
+                              marginInlineEnd="1"
+                              marginBlockEnd="2"
+                            >
+                              {tag.name}
+                            </Tag>
+                          ))}
+                          <Tag>Read : {post.readTimeInMinutes} mins</Tag>
+                          <Stack spacing="2" pt="4">
+                            <Text
+                              fontSize="3xl"
+                              fontWeight="semibold"
+                              lineHeight="normal"
+                            >
+                              {post.title}
+                            </Text>
+                            <Text fontSize="xl">{post.subTitle}</Text>
+                          </Stack>
+                        </>
+                      );
+                    }}
+                    renderFooter={() => (
+                      <>
+                        <Heading size="md" my="2" fontWeight="extrabold">
+                          <LinkOverlay target="_blank" href={post.link}>
+                            READ MORE
+                          </LinkOverlay>
+                        </Heading>
+                        <Heading size="md" my="2" fontWeight="extrabold">
+                          <ViewIcon /> {post.views}
+                        </Heading>
+                      </>
+                    )}
+                  />
+                ))}
+          </>
         )}
       </main>
     </>

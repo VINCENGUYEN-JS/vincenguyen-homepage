@@ -2,19 +2,15 @@ import React from "react";
 import { Button } from "@chakra-ui/react";
 import { DownloadIcon } from "@chakra-ui/icons";
 
-import useAnalyticsEventTracker from "../../hooks/useAnalyticsEventTracker";
-
 const DownloadButton: React.FC = () => {
   const [isLoading, setLoading] = React.useState(false);
-  const gaEventTracker = useAnalyticsEventTracker("Download profile");
 
   const handleDownload = async () => {
     setLoading(true);
-    gaEventTracker("download", "download resume");
 
     try {
       // Simulate a delay
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
       const pdfPath = "/VinceNguyen.pdf";
       const link = document.createElement("a");
