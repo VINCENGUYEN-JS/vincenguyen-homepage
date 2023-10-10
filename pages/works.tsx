@@ -17,7 +17,7 @@ const Works = () => {
         url="vincenguyen.dev/works"
       />
       <main ref={ref}>
-        <Heading as="h3" variant="section" fontSize={20} mb={4}>
+        <Heading as="h2" variant="section" fontSize={30} mb={8} mt={8}>
           Works
         </Heading>
         <Section marginBottom="4">
