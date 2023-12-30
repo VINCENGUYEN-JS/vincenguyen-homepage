@@ -13,6 +13,7 @@ const AnimatedThemeToggleButton = () => {
     <Motion>
       <IconButton
         aria-label="Toggle theme"
+        role="switch"
         colorScheme={useColorModeValue("purple", "orange")}
         icon={useColorModeValue(<MoonIcon />, <SunIcon />)}
         onClick={composeFn(play, toggleColorMode)}

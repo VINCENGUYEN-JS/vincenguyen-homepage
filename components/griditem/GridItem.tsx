@@ -8,7 +8,6 @@ import {
   LinkOverlay,
   CardBody,
   CardFooter,
-  Button,
   Heading,
   Divider,
 } from "@chakra-ui/react";
@@ -55,38 +54,41 @@ type WorkCardProps = {
 };
 
 export const WorkCard = ({ title, thumbnail }: WorkCardProps) => (
-  <Card>
-    <Image
-      src={thumbnail.src}
-      alt={title}
-      className="grid-item-thumbnail"
-      objectFit="cover"
-    />
-    <CardBody>
-      <Heading size="md">Pricefx</Heading>
-      <Text py="2">
-        <strong>A leading SaaS Pricing</strong> (Price Optimization &
-        Management) and CPQ (Configure-Price-Quote) vendor. Pricefx is the
-        global leader in cloud native SaaS software for price optimization and
-        management, serving global 1000 companies worldwide. Our product boasts
-        <strong> outstanding customer reviews </strong>ranging from small
-        companies to renowned names such as
-        <strong> Michelin, Sonoco, Danone, Avery Dennison</strong> and{" "}
-        <strong> Bosch.</strong>
-      </Text>
-    </CardBody>
-    <Divider />
-    <CardFooter justify="center">
-      <Button
-        leftIcon={<ExternalLinkIcon />}
-        variant="solid"
-        colorScheme="teal"
-        onClick={() => {
-          window.open("https://www.youtube.com/watch?v=VcSDX-B1nrY&t=1s");
-        }}
-      >
-        Awesome UX/UI
-      </Button>
-    </CardFooter>
-  </Card>
+  <LinkBox>
+    <Card>
+      <Image
+        src={thumbnail.src}
+        alt={title}
+        className="grid-item-thumbnail"
+        objectFit="cover"
+      />
+      <CardBody>
+        <Heading size="md">Pricefx</Heading>
+        <Text py="2">
+          <strong>A leading SaaS Pricing</strong> (Price Optimization &
+          Management) and CPQ (Configure-Price-Quote) vendor. Pricefx is the
+          global leader in cloud native SaaS software for price optimization and
+          management, serving global 1000 companies worldwide. Our product
+          boasts
+          <strong> outstanding customer reviews </strong>ranging from small
+          companies to renowned names such as
+          <strong> Michelin, Sonoco, Danone, Avery Dennison</strong> and{" "}
+          <strong> Bosch.</strong>
+        </Text>
+      </CardBody>
+      <Divider />
+      <CardFooter justify="center">
+        <LinkOverlay
+          isExternal
+          href="https://www.youtube.com/watch?v=VcSDX-B1nrY&t=1s"
+          color="accent.300"
+        >
+          <Text as="span" fontSize="xl">
+            Awesome UX/UI
+          </Text>
+          <ExternalLinkIcon />
+        </LinkOverlay>
+      </CardFooter>
+    </Card>
+  </LinkBox>
 );

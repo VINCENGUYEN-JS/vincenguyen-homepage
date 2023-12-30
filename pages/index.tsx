@@ -5,7 +5,8 @@ import {
   Box,
   Heading,
   Link,
-  Button,
+  ListIcon,
+  VisuallyHidden,
   List,
   ListItem,
   Highlight,
@@ -133,44 +134,38 @@ const Page = () => {
             <Heading as="h3" variant="section">
               On Web
             </Heading>
-            <List>
+            <List spacing={3}>
               <ListItem>
-                <Link href="https://github.com/VINCENGUYEN-JS" target="_blank">
-                  <Button
-                    variant="ghost"
-                    color="accent.300"
-                    leftIcon={<IoLogoGithub />}
-                  >
-                    @vincenguyen
-                  </Button>
+                <Link
+                  href="https://github.com/VINCENGUYEN-JS"
+                  color="accent.300"
+                  isExternal
+                >
+                  <ListIcon as={IoLogoGithub} />
+                  @vincenguyen
+                  <VisuallyHidden>GitHub profile</VisuallyHidden>
                 </Link>
               </ListItem>
               <ListItem>
                 <Link
                   href="https://www.youtube.com/watch?v=YtslW2rObDo&t=6s"
-                  target="_blank"
+                  isExternal
+                  color="accent.300"
                 >
-                  <Button
-                    variant="ghost"
-                    color="accent.300"
-                    leftIcon={<IoLogoYoutube />}
-                  >
-                    @vincenguyen
-                  </Button>
+                  <ListIcon as={IoLogoYoutube} />
+                  @vincenguyen
+                  <VisuallyHidden>Youtube channel</VisuallyHidden>
                 </Link>
               </ListItem>
               <ListItem>
                 <Link
                   href="https://www.linkedin.com/in/vincenguyendev"
-                  target="_blank"
+                  isExternal
+                  color="accent.300"
                 >
-                  <Button
-                    variant="ghost"
-                    color="accent.300"
-                    leftIcon={<IoLogoLinkedin />}
-                  >
-                    @vincenguyen
-                  </Button>
+                  <ListIcon as={IoLogoLinkedin} />
+                  @vincenguyen
+                  <VisuallyHidden>Linked profile</VisuallyHidden>
                 </Link>
               </ListItem>
             </List>
@@ -182,6 +177,7 @@ const Page = () => {
               thumbnail={thumbYoutube}
             >
               My Youtube Channel
+              <VisuallyHidden>A business trip to Prague</VisuallyHidden>
             </GridItem>
           </Section>
         </Container>

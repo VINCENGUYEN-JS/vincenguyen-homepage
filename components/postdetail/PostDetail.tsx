@@ -1,19 +1,20 @@
 import React from "react";
 import {
   Heading,
-  Skeleton,
   FormControl,
+  Grid,
   FormLabel,
   Switch,
   Image,
   Stack,
   Text,
   Tag,
-  Box,
-  SkeletonText,
+  VisuallyHidden,
   LinkOverlay,
 } from "@chakra-ui/react";
 import type { ApolloError } from "@apollo/client";
+
+import PostCardSkeleton from "../postcard/PostCardSkeleton";
 import PostCard from "../postcard/PostCard";
 import Error from "../error/Error";
 import { ViewIcon } from "@chakra-ui/icons";
@@ -68,33 +69,7 @@ const PostDetail = (props: PostDetailProps) => {
   if (error) return <Error message={error.message} />;
 
   if (loading) {
-    return (
-      <>
-        {Array(3)
-          .fill(0)
-          .map((_, idx) => (
-            <Skeleton key={idx}>
-              <PostCard
-                renderLeft={() => (
-                  <Box
-                    maxW={{ base: "100%", sm: "45%" }}
-                    height={{ base: "auto", sm: "350" }}
-                  />
-                )}
-                renderBody={() => (
-                  <SkeletonText
-                    mt="4"
-                    noOfLines={4}
-                    spacing="4"
-                    skeletonHeight="2"
-                  />
-                )}
-                renderFooter={() => <SkeletonText />}
-              />
-            </Skeleton>
-          ))}
-      </>
-    );
+    return <PostCardSkeleton />;
   }
 
   return (
@@ -105,59 +80,62 @@ const PostDetail = (props: PostDetailProps) => {
         </FormLabel>
         <Switch size="md" id="isChecked" onChange={onChange} />
       </FormControl>
-      {blogPost?.map((post, idx) => (
-        <PostCard
-          key={idx}
-          renderLeft={() => (
-            <Image
-              objectFit="cover"
-              src={post.coverImage.url}
-              alt={post.seo.title}
-              maxW={{ base: "100%", sm: "45%" }}
-              height={{ base: "auto", sm: "350" }}
-            />
-          )}
-          renderBody={() => {
-            return (
+      <Grid templateColumns="repeat(auto-fit,minmax(500px,1fr))" gap={6}>
+        {blogPost?.map((post, idx) => (
+          <PostCard
+            key={idx}
+            renderLeft={() => (
+              <Image
+                objectFit="cover"
+                src={post.coverImage.url}
+                alt={post.seo.title}
+                maxW={{ base: "100%", sm: "45%" }}
+                height={{ base: "auto", sm: "350" }}
+              />
+            )}
+            renderBody={() => {
+              return (
+                <>
+                  {post.tags.map((tag: any, idx: number) => (
+                    <Tag
+                      key={idx}
+                      colorScheme="purple"
+                      marginInlineEnd="1"
+                      marginBlockEnd="2"
+                    >
+                      {tag.name}
+                    </Tag>
+                  ))}
+                  <Tag>Read: {post.readTimeInMinutes} mins</Tag>
+                  <Stack spacing="2" pt="4">
+                    <Text
+                      fontSize="3xl"
+                      fontWeight="semibold"
+                      lineHeight="normal"
+                    >
+                      {post.title}
+                    </Text>
+                    <Text fontSize="xl">{post.subtitle}</Text>
+                  </Stack>
+                </>
+              );
+            }}
+            renderFooter={() => (
               <>
-                {post.tags.map((tag: any, idx: number) => (
-                  <Tag
-                    key={idx}
-                    colorScheme="purple"
-                    marginInlineEnd="1"
-                    marginBlockEnd="2"
-                  >
-                    {tag.name}
-                  </Tag>
-                ))}
-                <Tag>Read: {post.readTimeInMinutes} mins</Tag>
-                <Stack spacing="2" pt="4">
-                  <Text
-                    fontSize="3xl"
-                    fontWeight="semibold"
-                    lineHeight="normal"
-                  >
-                    {post.title}
-                  </Text>
-                  <Text fontSize="xl">{post.subtitle}</Text>
-                </Stack>
+                <Heading size="md" my="2" fontWeight="extrabold">
+                  <LinkOverlay target="_blank" href={post.url}>
+                    READ MORE
+                    <VisuallyHidden> {post.seo.title} </VisuallyHidden>
+                  </LinkOverlay>
+                </Heading>
+                <Heading size="md" my="2" fontWeight="extrabold">
+                  <ViewIcon /> {post.views + 10000}
+                </Heading>
               </>
-            );
-          }}
-          renderFooter={() => (
-            <>
-              <Heading size="md" my="2" fontWeight="extrabold">
-                <LinkOverlay target="_blank" href={post.url}>
-                  READ MORE
-                </LinkOverlay>
-              </Heading>
-              <Heading size="md" my="2" fontWeight="extrabold">
-                <ViewIcon /> {post.views + 10000}
-              </Heading>
-            </>
-          )}
-        />
-      ))}
+            )}
+          />
+        ))}
+      </Grid>
     </>
   );
 };

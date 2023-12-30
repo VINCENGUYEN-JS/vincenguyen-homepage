@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@chakra-ui/react";
+import { Button, VisuallyHidden } from "@chakra-ui/react";
 import { DownloadIcon } from "@chakra-ui/icons";
 
 const DownloadButton: React.FC = () => {
@@ -36,6 +36,7 @@ const DownloadButton: React.FC = () => {
       onClick={handleDownload}
       loadingText="Downloading"
     >
+      <VisuallyHidden>Download</VisuallyHidden>
       My Resume
     </Button>
   );
