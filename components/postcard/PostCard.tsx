@@ -11,6 +11,7 @@ const PostCard = (props: PostCardProps) => {
   return (
     <Card
       direction={{ base: "column", sm: "row" }}
+      width={{ sm: "full", base: "xs" }}
       overflow="hidden"
       variant="outline"
       shadow="md"

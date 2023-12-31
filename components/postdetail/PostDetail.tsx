@@ -14,10 +14,21 @@ import {
 } from "@chakra-ui/react";
 import type { ApolloError } from "@apollo/client";
 
+import {
+  TAGS_TO_COLORS,
+  normalizeString,
+  formatText,
+} from "../../helpers/utilities";
 import PostCardSkeleton from "../postcard/PostCardSkeleton";
 import PostCard from "../postcard/PostCard";
 import Error from "../error/Error";
 import { ViewIcon } from "@chakra-ui/icons";
+
+type PostDetailProps = {
+  data: any;
+  error: ApolloError | undefined;
+  loading: boolean;
+};
 
 const selectPost = (data: any) =>
   data?.publication?.series?.posts?.edges.map(({ node }: any) => node);
@@ -31,12 +42,6 @@ function sortByViews(posts: Array<any>, method: string) {
   }
   return sortedArray;
 }
-
-type PostDetailProps = {
-  data: any;
-  error: ApolloError | undefined;
-  loading: boolean;
-};
 
 const PostDetail = (props: PostDetailProps) => {
   const { error, loading, data } = props;
@@ -96,17 +101,27 @@ const PostDetail = (props: PostDetailProps) => {
             renderBody={() => {
               return (
                 <>
-                  {post.tags.map((tag: any, idx: number) => (
-                    <Tag
-                      key={idx}
-                      colorScheme="purple"
-                      marginInlineEnd="1"
-                      marginBlockEnd="2"
-                    >
-                      {tag.name}
-                    </Tag>
-                  ))}
-                  <Tag>Read: {post.readTimeInMinutes} mins</Tag>
+                  {post.tags.map(
+                    (
+                      tag: {
+                        __typename: string;
+                        name: string;
+                      },
+                      idx: number
+                    ) => (
+                      <Tag
+                        key={idx}
+                        colorScheme={TAGS_TO_COLORS[normalizeString(tag.name)]}
+                        marginInlineEnd="1"
+                        marginBlockEnd="2"
+                      >
+                        {formatText(tag.name)}
+                      </Tag>
+                    )
+                  )}
+                  <Tag colorScheme={TAGS_TO_COLORS["READ"]}>
+                    Read: {post.readTimeInMinutes} mins
+                  </Tag>
                   <Stack spacing="2" pt="4">
                     <Text
                       fontSize="3xl"

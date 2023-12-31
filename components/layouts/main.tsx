@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Navbar from "../navbar/NavBar";
-import { Box, Container } from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
 import { NextRouter } from "next/router";
 import { useRouter } from "next/router";
 
@@ -17,7 +17,7 @@ type MainProps = {
 const Main = ({ children, router }: MainProps) => {
   const route = useRouter();
   return (
-    <Box as="main" pb={8} mb={8}>
+    <>
       <Head>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <link rel="icon" href={favicon.src} />
@@ -33,7 +33,7 @@ const Main = ({ children, router }: MainProps) => {
       ) : (
         <Container pt={16}>{children}</Container>
       )}
-    </Box>
+    </>
   );
 };
 
