@@ -9,6 +9,9 @@ export const BLOG_QUERY = gql`
             node {
               title
               brief
+              series {
+                id
+              }
               views
               url
               reactionCount
